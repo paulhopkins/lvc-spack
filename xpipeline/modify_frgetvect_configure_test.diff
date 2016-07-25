@@ -1,0 +1,13 @@
+Index: m4/xpipeline.m4
+===================================================================
+--- m4/xpipeline.m4	(revision 5319)
++++ m4/xpipeline.m4	(working copy)
+@@ -303,7 +303,7 @@
+     AC_MSG_RESULT([using frgetvect at ${FRGETVECT_USE}])
+ dnl the case where --with-frgetvect=<user path> was given.
+ else
+-    if test -x ${FRGETVECT_USE}/frgetvect.${MEX_EXT}
++    if test -f ${FRGETVECT_USE}/frgetvect.${MEX_EXT}
+     then
+         AC_MSG_RESULT([${FRGETVECT_USE}])
+     else
