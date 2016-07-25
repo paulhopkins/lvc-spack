@@ -1,0 +1,25 @@
+--- a/tmva/src/DataSetFactory.cxx	2016-07-04 15:42:08.135577657 +0100
++++ b/tmva/src/DataSetFactory.cxx	2016-07-04 15:40:59.663752144 +0100
+@@ -606,9 +606,9 @@
+    splitSpecs.SetConfigName("DataSetFactory");
+    splitSpecs.SetConfigDescription( "Configuration options given in the \"PrepareForTrainingAndTesting\" call; these options define the creation of the data sets used for training and expert validation by TMVA" );
+ 
+-   splitMode = "Random";    // the splitting mode
++   splitMode = "Block";    // the splitting mode
+    splitSpecs.DeclareOptionRef( splitMode, "SplitMode",
+-                                "Method of picking training and testing events (default: random)" );
++                                "Method of picking training and testing events (default: block)" );
+    splitSpecs.AddPreDefVal(TString("Random"));
+    splitSpecs.AddPreDefVal(TString("Alternate"));
+    splitSpecs.AddPreDefVal(TString("Block"));
+--- a/tmva/src/Factory.cxx	2016-07-04 15:42:29.768838468 +0100
++++ b/tmva/src/Factory.cxx	2016-07-04 15:40:39.592510195 +0100
+@@ -662,7 +662,7 @@
+ 
+    AddCut( cut  );
+ 
+-   DefaultDataSetInfo().SetSplitOptions( Form("nTrain_Signal=%i:nTrain_Background=%i:nTest_Signal=%i:nTest_Background=%i:SplitMode=Random:EqualTrainSample:!V", 
++   DefaultDataSetInfo().SetSplitOptions( Form("nTrain_Signal=%i:nTrain_Background=%i:nTest_Signal=%i:nTest_Background=%i:SplitMode=Block:EqualTrainSample:!V", 
+                                               Ntrain, Ntrain, Ntest, Ntest) );
+ }
+ 
