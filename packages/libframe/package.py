@@ -42,7 +42,8 @@ class Libframe(Package):
     #variant('python', default=False)
     #variant('octave', False, 'Generate SWIG bindings for Octave')
     #variant('root', default=False)
-    variant('matlab', default=False)
+    #variant('utils', default=False)
+    variant('matlab', False, "Build Matlab mex libraries")
 
     depends_on('matlab', when='+matlab')
 

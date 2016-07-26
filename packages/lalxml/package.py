@@ -50,10 +50,11 @@ class Lalxml(Package):
     depends_on('py-numpy', when='+swig_python')
     depends_on('octave+fftw', when='+octave')
 
-    for p in ['+swig_python', '~swig_python']:
-        for o in ['+octave', '~octave']:
-            for f in ['+fastgsl', '~fastgsl']:
-                depends_on('lal' + p + o + f, when=p + o + f)
+    depends_on('lal')
+#    for p in ['+swig_python', '~swig_python']:
+#        for o in ['+octave', '~octave']:
+#            for f in ['+fastgsl', '~fastgsl']:
+#                depends_on('lal' + p + o + f, when=p + o + f)
 
 
     def install(self, spec, prefix):

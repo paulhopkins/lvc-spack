@@ -1,6 +1,6 @@
 from spack import *
 
-class PyDns(Package):
+class PyDnspython(Package):
     """Description"""
 
     homepage = "http://www.example.com"

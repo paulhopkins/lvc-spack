@@ -72,19 +72,29 @@ class Lalinference(Package):
     depends_on('py-numpy', when='+swig_python')
     depends_on('octave+fftw', when='+octave')
 
-    for p in ['+swig_python', '~swig_python']:
-        for o in ['+octave', '~octave']:
-            depends_on('lalframe' + p + o, when=p + o)
-            depends_on('lalmetaio' + p + o, when=p + o)
-            for f in ['+fastgsl', '~fastgsl']:
-                depends_on('lal' + p + o + f, when=p + o + f)
-                depends_on('lalinspiral' + p + o + f, when=p + o + f)
-                depends_on('lalburst' + p + o + f, when=p + o + f)
-                depends_on('lalxml' + p + o + f, when=p + o + f)
+    depends_on('lalframe')
+    depends_on('lalmetaio')
+    depends_on('lal')
+    depends_on('lalinspiral')
+    depends_on('lalburst')
+    depends_on('lalxml')
+    depends_on('lalpulsar')
+    depends_on('lalsimulation')
 
-                for m in ['+openmp', '~openmp']:
-                    depends_on('lalpulsar' + p + o + f + m, when=p + o + f + m)
-                    depends_on('lalsimulation' + p + o + f + m, when=p + o + f + m)
+    
+#    for p in ['+swig_python', '~swig_python']:
+#        for o in ['+octave', '~octave']:
+#            depends_on('lalframe' + p + o, when=p + o)
+#            depends_on('lalmetaio' + p + o, when=p + o)
+#            for f in ['+fastgsl', '~fastgsl']:
+#                depends_on('lal' + p + o + f, when=p + o + f)
+#                depends_on('lalinspiral' + p + o + f, when=p + o + f)
+#                depends_on('lalburst' + p + o + f, when=p + o + f)
+#                depends_on('lalxml' + p + o + f, when=p + o + f)
+#
+#                for m in ['+openmp', '~openmp']:
+#                    depends_on('lalpulsar' + p + o + f + m, when=p + o + f + m)
+#                    depends_on('lalsimulation' + p + o + f + m, when=p + o + f + m)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]

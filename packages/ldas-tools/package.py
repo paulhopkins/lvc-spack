@@ -37,6 +37,7 @@ class LdasTools(Package):
     version('2.3.2', '91df75718ba359dbe564efbf5d33ff78')
 
     variant('python', default=True)
+    variant('matlab', default=False)
 
     depends_on("zlib")
     depends_on("flex")

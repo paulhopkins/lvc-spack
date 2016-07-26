@@ -50,13 +50,19 @@ class Lalinspiral(Package):
     depends_on('py-numpy', when='+swig_python')
     depends_on('octave+fftw', when='+octave')
 
-    for p in ['+swig_python', '~swig_python']:
-        for o in ['+octave', '~octave']:
-            depends_on('lalframe' + p + o, when=p + o)
-            depends_on('lalmetaio' + p + o, when=p + o)
-            for f in ['+fastgsl', '~fastgsl']:
-                depends_on('lal' + p + o + f, when=p + o + f)
-                depends_on('lalsimulation' + p + o + f, when=p + o + f)
+
+    depends_on('lalframe')
+    depends_on('lalmetaio')
+    depends_on('lal')
+    depends_on('lalsimulation')
+
+#    for p in ['+swig_python', '~swig_python']:
+#        for o in ['+octave', '~octave']:
+#            depends_on('lalframe' + p + o, when=p + o)
+#            depends_on('lalmetaio' + p + o, when=p + o)
+#            for f in ['+fastgsl', '~fastgsl']:
+#                depends_on('lal' + p + o + f, when=p + o + f)
+#                depends_on('lalsimulation' + p + o + f, when=p + o + f)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]

@@ -29,16 +29,19 @@ class Laldetchar(Package):
     depends_on('py-numpy', when='+swig_python')
     depends_on('octave+fftw', when='+octave')
 
-    def all_combinations(*names):
-        return [''.join(p) for p in product(*[('+'+v, '~'+v) for v in names])]
+    depends_on('lalmetaio')
+    depends_on('lal')
+    depends_on('lalsimulation')
+    depends_on('lalburst')
 
-    for c in all_combinations('swig_python', 'octave'):
-        depends_on('lalmetaio' + c, when=c)
-
-    for c in all_combinations('swig_python', 'octave', 'fastgsl'):
-        depends_on('lal' + c, when=c)
-        depends_on('lalsimulation' + c, when=c)
-        depends_on('lalburst' + c, when=c)
+    
+#    for c in all_combinations('swig_python', 'octave'):
+#        depends_on('lalmetaio' + c, when=c)
+#
+#    for c in all_combinations('swig_python', 'octave', 'fastgsl'):
+#        depends_on('lal' + c, when=c)
+#        depends_on('lalsimulation' + c, when=c)
+#        depends_on('lalburst' + c, when=c)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
