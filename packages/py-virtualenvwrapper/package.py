@@ -22,26 +22,39 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
+#
+# This is a template package file for Spack.  We've put "FIXME"
+# next to all the things you'll want to change. Once you've handled
+# them, you can save this file and test your package like this:
+#
+#     spack install py-virtualenvwrapper
+#
+# You can edit this file again by typing:
+#
+#     spack edit py-virtualenvwrapper
+#
+# See the Spack documentation for more information on packaging.
+# If you submit this package back to Spack as a pull request,
+# please first remove this boilerplate and all FIXME comments.
+#
 from spack import *
 
-class PyDqsegdb(Package):
-    """Client library for DQSegDB
-    This provices the client tools needed to connect to LIGO/Virgo
-    DQSEGDB instances.
-    """
 
-    homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/dqsegdb.html"
-    url      = "http://software.ligo.org/lscsoft/source/dqsegdb-1.3.2.tar.gz"
+class PyVirtualenvwrapper(Package):
+    """FIXME: Put a proper description of your package here."""
 
-    version('1.3.2', '13e953781c20a81e68504f2ee904c19d')
-    version('1.3.1', 'a74a740716a7d7188fd097bfd752f9f7')
-    version('1.3.0', '4e7edaf15978d1354952a16d5b873bd3')
-    version('1.2.2', '934afc954fac20de95bc6d1fab276f41')
-    version('1.2.1', '91856261820e792023e4d338f32f9d05')
+    # FIXME: Add a proper url for your package's homepage here.
+    homepage = "http://www.example.com"
+    url      = "https://pypi.python.org/packages/2f/76/6d39003e32429604bf1df9128652d90bec6015c62f66358df1f2e73e7fb3/virtualenvwrapper-4.7.1.tar.gz#md5=3789e0998818d9a8a4ec01cfe2a339b2"
+
+    version('4.7.1', '3789e0998818d9a8a4ec01cfe2a339b2')
 
     extends('python')
-    depends_on('py-glue')
-    depends_on('py-setuptools')
+
+    # FIXME: Add additional dependencies if required.
+    depends_on('py-setuptools', type='build')
+    depends_on('py-stevedore')
 
     def install(self, spec, prefix):
-        python('setup.py', 'install', '--prefix={0}'.format(prefix))
+        # FIXME: Add logic to build and install here.
+        setup_py('install', '--prefix={0}'.format(prefix))

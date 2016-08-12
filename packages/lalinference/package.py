@@ -130,10 +130,14 @@ class Lalinference(Package):
         make("install")
 
     def setup_environment(self, spack_env, run_env):
-        source_file_env = EnvironmentModifications.from_sourcing_files(
-            join_path(self.prefix.etc,'lalinference-user-env.sh'))
-        run_env.extend(source_file_env)
-
+        run_env.set('LALINFERENCE_PREFIX', self.spec.prefix)
+        run_env.set("LALINFERENCE_DATADIR",
+                    join_path(self.prefix.share, 'lalinference'))
+#        source_file = join_path(self.prefix.etc,'lalinference-user-env.sh')
+#        if can_access(source_file):
+#            source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+#            run_env.extend(source_file_env)
+#
 #        run_env.set('LALINFERENCE_PREFIX', self.spec.prefix)
 #        run_env.set("LALINFERENCE_DATADIR",
 #                    join_path(self.prefix.share, 'lalinference'))

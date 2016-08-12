@@ -22,34 +22,38 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
+#
+# This is a template package file for Spack.  We've put "FIXME"
+# next to all the things you'll want to change. Once you've handled
+# them, you can save this file and test your package like this:
+#
+#     spack install py-stevedore
+#
+# You can edit this file again by typing:
+#
+#     spack edit py-stevedore
+#
+# See the Spack documentation for more information on packaging.
+# If you submit this package back to Spack as a pull request,
+# please first remove this boilerplate and all FIXME comments.
+#
 from spack import *
 
-class Metaio(Package):
-    """LIGO Light-Weight XML Library.
-    This code implements a simple recursive-descent parsing scheme
-    for LIGO_LW files, based on the example in Chapter 2 of
-    "Compilers: Principles, Techniques and Tools" by Aho, Sethi and
-    Ullman.
-    """
 
-    homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/metaio.html"
-    url      = "http://software.ligo.org/lscsoft/source/metaio-8.4.0.tar.gz"
+class PyStevedore(Package):
+    """FIXME: Put a proper description of your package here."""
 
-    version('8.4.0', '65661cfb47643623bc8cbe97ddbe7b91')
-    version('8.3.1', '2a68dc6aed8da8582cee66d4b37b50da')
-    version('8.3.0', '4d244197051fc1c1a9c2c5f82e14dc4c')
+    # FIXME: Add a proper url for your package's homepage here.
+    homepage = "http://www.example.com"
+    url      = "https://pypi.python.org/packages/60/2a/9e109b387cba156cf97871cd3cdb34a00ce65429d5d4ba16678490f6d2ab/stevedore-1.17.0.tar.gz#md5=bfcd4cb6ad403f076a16ce4c08cab60d"
 
-    variant('matlab', False, 'Enable Matlab support')
+    version('1.17.0', 'bfcd4cb6ad403f076a16ce4c08cab60d')
 
-    depends_on("zlib")
-    depends_on("matlab", when="+matlab")
+    extends('python')
+
+    # FIXME: Add additional dependencies if required.
+    depends_on('py-setuptools', type='build')
 
     def install(self, spec, prefix):
-        config_args = ['--prefix=%s' % prefix]
-
-        config_args.append('--with-matlab' if '+matlab' in spec else
-                           '--without-matlab')
-
-        configure(*config_args)
-        make()
-        make("install")
+        # FIXME: Add logic to build and install here.
+        setup_py('install', '--prefix={0}'.format(prefix))

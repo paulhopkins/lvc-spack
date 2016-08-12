@@ -23,6 +23,7 @@ class Laldetchar(Package):
     depends_on("gsl")
     depends_on("metaio")
     depends_on("libframe")
+    depends_on("glib")
 
     depends_on('swig', when='+swig_python')
     depends_on('swig', when='+octave')
@@ -33,15 +34,6 @@ class Laldetchar(Package):
     depends_on('lal')
     depends_on('lalsimulation')
     depends_on('lalburst')
-
-    
-#    for c in all_combinations('swig_python', 'octave'):
-#        depends_on('lalmetaio' + c, when=c)
-#
-#    for c in all_combinations('swig_python', 'octave', 'fastgsl'):
-#        depends_on('lal' + c, when=c)
-#        depends_on('lalsimulation' + c, when=c)
-#        depends_on('lalburst' + c, when=c)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
@@ -70,14 +62,8 @@ class Laldetchar(Package):
         run_env.set('LALDETCHAR_PREFIX', self.spec.prefix)
         run_env.set("LALDETCHAR_DATADIR",
                     join_path(self.prefix.share, 'laldetchar'))
-
-        # This step is required to overcome a restriction in 
-        # "EnvironmentModifications.from_sourcing_files" that does not properly
-        # handle paths which have no initial value.
-        if '+octave' in self.spec:
-            source_file_env = EnvironmentModifications.from_sourcing_files(
-                join_path(self.prefix.etc,'laldetchar-user-env.sh'))
-            modifications = source_file_env.group_by_name()
-            octave_path = modifications['OCTAVE_PATH'][0].value.split(':',1)[0]
-            run_env.append_path("OCTAVE_PATH", octave_path)
-                           
+        ## Use normal user-env script if it exists.
+        #source_file = join_path(self.prefix.etc, 'laldetchar-user-env.sh')
+        #if can_access(source_file):
+        #    source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+        #    run_env.extend(source_file_env)

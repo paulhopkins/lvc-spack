@@ -51,11 +51,6 @@ class Lalxml(Package):
     depends_on('octave+fftw', when='+octave')
 
     depends_on('lal')
-#    for p in ['+swig_python', '~swig_python']:
-#        for o in ['+octave', '~octave']:
-#            for f in ['+fastgsl', '~fastgsl']:
-#                depends_on('lal' + p + o + f, when=p + o + f)
-
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
@@ -89,13 +84,8 @@ class Lalxml(Package):
         run_env.set('LALXML_PREFIX', self.spec.prefix)
         run_env.set("LALXML_DATADIR",
                     join_path(self.prefix.share, 'lalxml'))
-
-        # This step is required to overcome a restriction in 
-        # "EnvironmentModifications.from_sourcing_files" that does not properly
-        # handle paths which have no initial value.
-        if '+octave' in self.spec:
-            source_file_env = EnvironmentModifications.from_sourcing_files(
-                join_path(self.prefix.etc,'lalxml-user-env.sh'))
-            modifications = source_file_env.group_by_name()
-            octave_path = modifications['OCTAVE_PATH'][0].value.split(':',1)[0]
-            run_env.append_path("OCTAVE_PATH", octave_path)
+        ## Use normal user-env script if it exists.
+        #source_file = join_path(self.prefix.etc, 'lalxml-user-env.sh')
+        #if can_access(source_file):
+        #    source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+        #    run_env.extend(source_file_env)

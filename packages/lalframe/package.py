@@ -74,14 +74,8 @@ class Lalframe(Package):
         run_env.set('LALFRAME_PREFIX', self.spec.prefix)
         run_env.set("LALFRAME_DATADIR",
                     join_path(self.prefix.share, 'lalframe'))
-
-        # This step is required to overcome a restriction in 
-        # "EnvironmentModifications.from_sourcing_files" that does not properly
-        # handle paths which have no initial value.
-        if '+octave' in self.spec:
-            source_file_env = EnvironmentModifications.from_sourcing_files(
-                join_path(self.prefix.etc,'lalframe-user-env.sh'))
-            modifications = source_file_env.group_by_name()
-            octave_path = modifications['OCTAVE_PATH'][0].value.split(':',1)[0]
-            run_env.append_path("OCTAVE_PATH", octave_path)
-                           
+        ## Use normal user-env script if it exists.
+        #source_file = join_path(self.prefix.etc, 'lalframe-user-env.sh')
+        #if can_access(source_file):
+        #    source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+        #    run_env.extend(source_file_env)

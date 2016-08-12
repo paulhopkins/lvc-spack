@@ -1,5 +1,5 @@
 from spack import *
-from itertools import product
+from spack.environment import *
 
 class Lalapps(Package):
     """LSC Algorithm Library Applications
@@ -32,7 +32,6 @@ class Lalapps(Package):
     depends_on('lalframe')
     depends_on('lalmetaio')
 
-    # ----
     depends_on('lal')
     depends_on('lalsimulation')
     depends_on('lalinspiral')
@@ -42,21 +41,6 @@ class Lalapps(Package):
     depends_on('lalsimulation')
     depends_on('lalpulsar')
     depends_on('lalinference')
-
-#    def all_combinations(*names):
-#        return [''.join(p) for p in product(*[('+'+v, '~'+v) for v in names])]
-#    
-#    for c in all_combinations('fastgsl'):
-#        depends_on('lal' + c, when=c)
-#        depends_on('lalsimulation' + c, when=c)
-#        depends_on('lalinspiral' + c, when=c)
-#        depends_on('lalburst' + c, when=c)
-#        depends_on('lalxml' + c, when=c)
-#
-#    for c in all_combinations('fastgsl', 'openmp'):
-#        depends_on('lalsimulation' + c, when=c)
-#        depends_on('lalpulsar' + c, when=c)
-#        depends_on('lalinference' + c, when=c)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
@@ -83,4 +67,10 @@ class Lalapps(Package):
 
     def setup_environment(self, spack_env, run_env):
         run_env.set('LALAPPS_PREFIX', self.spec.prefix)
-        run_env.set("LALAPPS_DATADIR", join_path(self.prefix.share, 'lalapps'))
+        run_env.set("LALAPPS_DATADIR",
+                    join_path(self.prefix.share, 'lalapps'))
+#        # Use normal user-env script if it exists.
+#        source_file = join_path(self.prefix.etc, 'lalapps-user-env.sh')
+#        if can_access(source_file):
+#            source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+#            run_env.extend(source_file_env)

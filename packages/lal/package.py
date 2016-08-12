@@ -56,9 +56,15 @@ class Lal(Package):
         make("install")
 
     def setup_environment(self, spack_env, run_env):
-        # Use normal user-env script if it exists.
-        source_file = join_path(self.prefix.etc, 'lal-user-env.sh')
-        if can_access(source_file):
-            source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
-            run_env.extend(source_file_env)
+        run_env.set('LAL_PREFIX', self.spec.prefix)
+        run_env.set("LAL_DATADIR",
+                    join_path(self.prefix.share, 'lal'))
+
+        #source_file = join_path(self.prefix.etc, 'lal-user-env.sh')
+        #if can_access(source_file):
+        #    source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+        #    modifications = source_file_env.group_by_name()
+        #    if 'OCTAVE_PATH' in modifications:
+        #        octave_path = modifications['OCTAVE_PATH'][0].value.split(':',1)[0]
+        #        run_env.append_path("OCTAVE_PATH", octave_path)
 

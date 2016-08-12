@@ -46,10 +46,6 @@ class Lalsimulation(Package):
     depends_on("gsl")
 
     depends_on("lal")
-#    for p in ['+swig_python', '~swig_python']:
-#        for o in ['+octave', '~octave']:
-#            for f in ['+fastgsl', '~fastgsl']:
-#                depends_on('lal' + p + o + f, when=p + o + f)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
@@ -80,7 +76,10 @@ class Lalsimulation(Package):
         make("install")
 
     def setup_environment(self, spack_env, run_env):
-        source_file = join_path(self.prefix.etc, 'lalsimulation-user-env.sh')
-        if can_access(source_file):
-            source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
-            run_env.extend(source_file_env)
+        run_env.set('LALSIMULATION_PREFIX', self.spec.prefix)
+        run_env.set("LALSIMULATION_DATADIR",
+                    join_path(self.prefix.share, 'lalsimulation'))
+        #source_file = join_path(self.prefix.etc, 'lalsimulation-user-env.sh')
+        #if can_access(source_file):
+        #    source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+        #    run_env.extend(source_file_env)

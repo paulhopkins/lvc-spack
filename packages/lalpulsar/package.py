@@ -22,22 +22,6 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
-
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install lalpulsar
-#
-# You can edit this file again by typing:
-#
-#     spack edit lalpulsar
-#
-# See the Spack documentation for more information on packaging.
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
 from spack import *
 from spack.environment import *
 
@@ -64,10 +48,6 @@ class Lalpulsar(Package):
     depends_on("lalxml")
 
     depends_on('lal')
-#    for p in ['+swig_python', '~swig_python']:
-#        for o in ['+octave', '~octave']:
-#            for f in ['+fastgsl', '~fastgsl']:
-#                depends_on('lal' + p + o + f, when=p + o + f)
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
@@ -96,13 +76,8 @@ class Lalpulsar(Package):
         run_env.set('LALPULSAR_PREFIX', self.spec.prefix)
         run_env.set("LALPULSAR_DATADIR",
                     join_path(self.prefix.share, 'lalpulsar'))
-
-        # This step is required to overcome a restriction in 
-        # "EnvironmentModifications.from_sourcing_files" that does not properly
-        # handle paths which have no initial value.
-        if '+octave' in self.spec:
-            source_file_env = EnvironmentModifications.from_sourcing_files(
-                join_path(self.prefix.etc,'lalpulsar-user-env.sh'))
-            modifications = source_file_env.group_by_name()
-            octave_path = modifications['OCTAVE_PATH'][0].value.split(':',1)[0]
-            run_env.append_path("OCTAVE_PATH", octave_path)
+        # Use normal user-env script if it exists.
+        #source_file = join_path(self.prefix.etc, 'lalpulsar-user-env.sh')
+        #if can_access(source_file):
+        #    source_file_env = EnvironmentModifications.from_sourcing_files(source_file)
+        #    run_env.extend(source_file_env)
