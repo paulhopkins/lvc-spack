@@ -22,17 +22,16 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
-
 #
 # This is a template package file for Spack.  We've put "FIXME"
 # next to all the things you'll want to change. Once you've handled
 # them, you can save this file and test your package like this:
 #
-#     spack install py-healpy
+#     spack install gsi-openssh
 #
 # You can edit this file again by typing:
 #
-#     spack edit py-healpy
+#     spack edit gsi-openssh
 #
 # See the Spack documentation for more information on packaging.
 # If you submit this package back to Spack as a pull request,
@@ -40,24 +39,31 @@
 #
 from spack import *
 
-class PyHealpy(Package):
-    """FIXME: put a proper description of your package here."""
-    # FIXME: add a proper url for your package's homepage here.
+
+class GsiOpenssh(Package):
+    """FIXME: Put a proper description of your package here."""
+
+    # FIXME: Add a proper url for your package's homepage here.
     homepage = "http://www.example.com"
-    url      = "https://pypi.python.org/packages/06/94/de69bbb3e2739f3305ad26a7e827d3d896ffda36c7020c26e8bb579fa010/healpy-1.9.1.tar.gz"
+    url      = "https://github.com/globus/gsi-openssh/archive/V_6_4_P1.tar.gz"
 
-    version('1.9.1', '5d1b082dce77e56023329496cecab48d')
+    version('6.4p1', '3fcdc219e8134f7ba0d866f2575a36e0')
 
-    # FIXME: Add dependencies if this package requires them.
-    extends("python")
-    depends_on("chealpix")
-    depends_on("cfitsio")
-
-    depends_on("py-setuptools")
-    depends_on("py-numpy")
-    depends_on("py-astropy")
+    # FIXME: Add dependencies if required.
+    depends_on('zlib')
+    depends_on('openssl')
 
     def install(self, spec, prefix):
-        # FIXME: Modify the configure line to suit your build system here.
-        python('setup.py', 'install', '--prefix=%s' % prefix)
+        aclocal = which('aclocal')
+        aclocal()
+        autoconf = which('autoconf')
+        autoconf()
+        autoheader = which('autoheader')
+        autoheader()
 
+        configure('--prefix=%s' % prefix)
+        make()
+        make('install')
+
+    def url_for_version(self, version):
+        return "https://github.com/globus/gsi-openssh/archive/V_6_4_P1.tar.gz"
