@@ -11,6 +11,7 @@ class LscsoftExternal(Package):
     version("0.1", "fbfe7b4acab1f9c5642388313270a616")
 
     depends_on("lscsoft-external-python")
+    depends_on("texlive scheme=medium")
 
     # Do not install anything and do not check if anything was installed
     def install(self, spec, prefix):
