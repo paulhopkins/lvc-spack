@@ -22,7 +22,7 @@ class LscsoftInternal(Package):
     depends_on("py-pyrxp")
     depends_on("py-python-voeventlib")
     depends_on("py-ligo-gracedb")
-    depends_on("lscsoft-gstlal")
+    #depends_on("lscsoft-gstlal")
     #depends_on("nds2-client+doc+octave+python")
     #depends_on("ligo-lars")
     #depends_on("gds+core+crtools+monitors+pygds+services")
