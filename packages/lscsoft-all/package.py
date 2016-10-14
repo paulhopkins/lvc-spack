@@ -38,7 +38,7 @@ class LscsoftAll(Package):
     depends_on("xz@5.2.0", when="version=sl7")
     depends_on("py-healpy@1.9.1", when="version=sl7")
     depends_on("glib@2.42.2", when="version=sl7")
-    depends_on("gettext@0.18.2+tar", when="version=sl7")
+    depends_on("gettext@0.18.2", when="version=sl7")
     depends_on("tar@1.26", when="version=sl7")
     depends_on("libffi@3.0.13", when="version=sl7")
     depends_on("py-m2crypto", when="version=sl7")
