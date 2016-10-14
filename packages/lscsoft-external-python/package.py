@@ -12,6 +12,12 @@ class LscsoftExternalPython(Package):
 
 #    depends_on("GitPython")
     depends_on("py-h5py")
+    depends_on("py-virtualenv")
+    depends_on("py-virtualenvwrapper")
+    depends_on("py-setuptools")
+    depends_on("py-basemap")
+
+
 #    depends_on("ipython")
 #    depends_on("numpy")
 #    depends_on("py-basemap")

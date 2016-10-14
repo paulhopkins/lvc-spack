@@ -47,6 +47,10 @@ class LscsoftAll(Package):
     depends_on("libjson-c@0.11", when="version=sl7")
     depends_on("py-h5py@2.3.1", when="version=sl7")
     depends_on("py-astropy@1.1.1", when="version=sl7")
+    depends_on("libxml2@2.9.1", when="version=sl7")
+    depends_on("py-matplotlib@1.4.3+gui+ipython", when="version=sl7")
+    depends_on("py-virtualenv@15.0.1", when="version=sl7")
+    depends_on("py-virtualenvwrapper@4.7.1", when="version=sl7")
 
     # Do not install anything and do not check if anything was installed
     def install(self, spec, prefix):
