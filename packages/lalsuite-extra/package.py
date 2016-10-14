@@ -34,6 +34,7 @@ class LalsuiteExtra(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite-extra-1.1.0.tar.gz"
 
+    version('develop', svn='https://svn.ligo.caltech.edu/svn/lalsuite-extra/')
     version('1.1.0', '325ead3b51d62a1bff48053d20ccbf1c')
     version('1.0.0', '2c8f66b90e68e200fdb62913c6fd3f9c')
 
@@ -43,6 +44,11 @@ class LalsuiteExtra(Package):
         make()
         make('install')
 
+#    @when("@develop")
+#    def install(self, spec, prefix):
+#        with working_dir("lalsuite-extra"):
+#            self.install(spec, prefix)
+        
     def setup_environment(self, spack_env, run_env):
         run_env.prepend_path('LAL_DATA_PATH',
                              join_path(self.prefix.share, 'lalsimulation'))
