@@ -46,6 +46,10 @@ class Lalpulsar(Package):
     depends_on("gsl")
     depends_on("libxml2")
     depends_on("lalxml")
+    depends_on('swig', when='+swig_python')
+    depends_on('swig', when='+octave')
+    depends_on('py-numpy', when='+swig_python')
+    depends_on('octave+fftw', when='+octave')
 
     depends_on('lal')
 

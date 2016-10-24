@@ -42,8 +42,10 @@ class Lalmetaio(Package):
 
     extends("python")
     depends_on("metaio")
-
     depends_on('lal')
+    depends_on('swig', when='+swig_python')
+    depends_on('swig', when='+octave')
+    depends_on("octave", when="+octave")
 
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
