@@ -29,6 +29,5 @@ class LscsoftInternal(Package):
 
     # Do not install anything and do not check if anything was installed
     def install(self, spec, prefix):
-        pass
-    def sanity_check_prefix(self):
-        pass
+        with open(join_path(spec.prefix, 'dummy.txt'), 'w') as out:
+            out.write('This is a bundle\n')

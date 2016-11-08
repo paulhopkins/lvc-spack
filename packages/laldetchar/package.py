@@ -11,8 +11,9 @@ class Laldetchar(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/laldetchar-0.3.2.tar.xz"
 
-    version('0.3.2', '0c52036d4bf65830e8006e85b12305a2')
+    version('0.3.4', 'c55a39a675c9fe511cc055f21bfb90ff')
     version('0.3.3', '8c213d90d44b709a23faa0af94acc6b9')
+    version('0.3.2', '0c52036d4bf65830e8006e85b12305a2')
 
     variant('swig_python', True, 'Generate SWIG bindings for Python')
     variant('octave', False, 'Generate SWIG bindings for Octave')

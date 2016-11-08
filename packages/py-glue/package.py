@@ -34,6 +34,9 @@ class PyGlue(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/glue.html"
     url      = "http://software.ligo.org/lscsoft/source/glue-1.50.0.tar.gz"
 
+    version('1.53.0', '877e0cbb96d2f1bfa602564cd1ae60e7')
+    version('1.52.0', '1f88d2f35e04edd67fb97807ecdf3bad')
+    version('1.51.0', '92bc0e04e9acbba964fc359b6a0804d0')
     version('1.50.0', 'eb7fe8d752db22522b494c47d5fbfe86')
     version('1.49.1', '616379d11a6de99da5181afee80b29b1')
     version('1.49'  , '245c7d0897cfde9f78b9e431dc888f93')

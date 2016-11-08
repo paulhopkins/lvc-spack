@@ -34,8 +34,9 @@ class Lalxml(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalxml-1.2.1.tar.xz"
 
-    version('1.2.1', '0c157b20cbcb6397240cc81f95b8dbe3')
+    version('1.2.3', '75fdc72770c689c79a4d67a08dbd13e3')
     version('1.2.2', '7de3ee80512d0d5352184064560de9b5')
+    version('1.2.1', '0c157b20cbcb6397240cc81f95b8dbe3')
 
     variant('swig_python', True, 'Generate SWIG bindings for Python')
     variant('octave', False, 'Generate SWIG bindings for Octave')

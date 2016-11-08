@@ -34,8 +34,9 @@ class Lalinspiral(Package):
     homepage = "https://wiki.ligo.org/DASWG/LALSuite"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalinspiral-1.7.4.tar.xz"
 
-    version('1.7.4', '8f5488c5b05347b203e19a5df226cef2')
+    version('1.7.6', '1df70e801f3f6913df631a144aa7fb84')
     version('1.7.5', '8b511e396038881deeb09880cb51cfab')
+    version('1.7.4', '8f5488c5b05347b203e19a5df226cef2')
 
     variant('swig_python', True, 'Generate SWIG bindings for Python')
     variant('octave', False, 'Generate SWIG bindings for Octave')

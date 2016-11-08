@@ -35,8 +35,9 @@ class Lalstochastic(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalstochastic-1.1.17.tar.xz"
 
-    version('1.1.17', '77d28029df0c9183ddc08b1d6cb2be7c')
+    version('1.1.19', '0afec17dca9b3b8cae6e011fe03f3870')
     version('1.1.18', '862a1c7f76e20b899fd610d0e0ee0643')
+    version('1.1.17', '77d28029df0c9183ddc08b1d6cb2be7c')
 
     variant('swig_python', True, 'Generate SWIG bindings for Python')
     variant('octave', False, 'Generate SWIG bindings for Octave')

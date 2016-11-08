@@ -45,6 +45,8 @@ class PyPylal(Package):
     homepage = "http://www.example.com"
     url      = "http://software.ligo.org/lscsoft/source/pylal-0.10.0.tar.gz"
 
+    version('0.12.0', '14a4031579fe1e8fbb45b198ee004ed7')
+    version('0.11.0', '0ff9b7d015812186407659591c85ae68')
     version('0.10.0', '5ea2add74b723db8800f887a06580d50')
     version('0.9.0' , '95ec8621632b1fbd0e713c83f865dda6')
     version('0.8.1' , 'becbed6a5c5efeb8e8ff5404f1d378f8')

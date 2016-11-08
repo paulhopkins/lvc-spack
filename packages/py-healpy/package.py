@@ -49,7 +49,10 @@ class PyHealpy(Package):
     version('1.9.1', '5d1b082dce77e56023329496cecab48d')
 
     # FIXME: Add dependencies if this package requires them.
-    extends("python")
+    ignore = ["fits2bitmap",  "fitscheck",  "fitsdiff",  "fitsheader",  "fitsinfo",  "samp_hub",  "volint",  "wcslint"]
+    extends("python", ignore="|".join("bin/%s$" % s for s in ignore))
+
+
     depends_on("chealpix")
     depends_on("cfitsio")
 

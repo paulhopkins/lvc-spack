@@ -33,6 +33,7 @@ class PyDqsegdb(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/dqsegdb.html"
     url      = "http://software.ligo.org/lscsoft/source/dqsegdb-1.3.2.tar.gz"
 
+    version('1.4.0', '584b938d6ee5681a35c568de971d37e4')
     version('1.3.2', '13e953781c20a81e68504f2ee904c19d')
     version('1.3.1', 'a74a740716a7d7188fd097bfd752f9f7')
     version('1.3.0', '4e7edaf15978d1354952a16d5b873bd3')

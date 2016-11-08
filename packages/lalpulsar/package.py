@@ -34,8 +34,9 @@ class Lalpulsar(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalpulsar-1.13.0.tar.xz"
 
-    version('1.13.0', '3b6c9116d03f7b6747627e16a790b39e')
+    version('1.15.0', 'c361894d680d3d890e8ff1d448ca4a05')
     version('1.14.0', '701d536ad947a471d7eb71fa8211598d')
+    version('1.13.0', '3b6c9116d03f7b6747627e16a790b39e')
 
     variant('swig_python', True, 'Generate SWIG bindings for Python')
     variant('octave', False, 'Generate SWIG bindings for Octave')

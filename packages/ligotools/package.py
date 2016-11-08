@@ -47,6 +47,7 @@ class Ligotools(Package):
     homepage = "http://www.example.com"
     url      = "http://software.ligo.org/lscsoft/source/ligotools-1.1.0.tar.gz"
 
+    version('1.2.0', '6933a83410e0bab5c4f390a26b6cf816')
     version('1.1.0', '57ec7134faf031ce84e409856150c00c')
     version('1.0.4', 'ad147cd4240a280465728883692903a1')
     version('1.0.3', '6f09863c07bfc35eb7288e35865853aa')

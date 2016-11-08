@@ -10,6 +10,7 @@ class Lal(Package):
     homepage = "https://wiki.ligo.org/DASWG/LALSuite"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lal-6.16.0.tar.xz"
 
+    version('6.17.0', '6a3e0f261a1e9a24f115537e9b1090b6')
     version('6.16.0', '4d5b2b79f1d7b720e32a7d4672ead0a1')
     version('6.16.1', 'ba9d91ce403f1d12e128ca579a2eb9a5')
 
@@ -29,7 +30,7 @@ class Lal(Package):
     depends_on('py-numpy', when='+swig_python', type=nolink)
     depends_on('swig', when='+octave', type='build')
     depends_on('octave+fftw', when='+octave')
-    depends_on('hdf5', when='+hdf5')
+    depends_on('hdf5~mpi', when='+hdf5')
     depends_on('cuda', when='+cuda')
 
     def install(self, spec, prefix):
