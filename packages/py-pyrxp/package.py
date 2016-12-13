@@ -46,6 +46,8 @@ class PyPyrxp(Package):
     homepage = "http://www.example.com"
     url      = "http://software.ligo.org/lscsoft/source/pyRXP-1.13.tar.gz"
 
+    version('2.1.0', '945b6586a0bc16e1735bca1244e824c6',
+            url='https://pypi.python.org/packages/5b/56/d7d6841b0fc0e4461946a8368d7d5cc4314bae3bed177ca9aadd0538918c/pyRXP-2.1.0.tar.gz#md5=945b6586a0bc16e1735bca1244e824c6')
     version('1.13', '87a1b0bf163ccc7fd1ddbcdb89731c19')
 
     # FIXME: Add dependencies if this package requires them.
