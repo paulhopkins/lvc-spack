@@ -47,6 +47,8 @@ class PyHealpy(Package):
     url      = "https://pypi.python.org/packages/06/94/de69bbb3e2739f3305ad26a7e827d3d896ffda36c7020c26e8bb579fa010/healpy-1.9.1.tar.gz"
 
     version('1.9.1', '5d1b082dce77e56023329496cecab48d')
+    version('1.10.1', 'ee8750957a6fdfdafbef54e54788ec9b',
+            url='https://pypi.python.org/packages/29/40/ee62140275003699842e859d245655eb32c9f9d3faf1ab5a6dc28c7edbf5/healpy-1.10.1.tar.gz')
 
     # FIXME: Add dependencies if this package requires them.
     ignore = ["fits2bitmap",  "fitscheck",  "fitsdiff",  "fitsheader",  "fitsinfo",  "samp_hub",  "volint",  "wcslint"]
