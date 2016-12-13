@@ -43,9 +43,10 @@ class PyLigoGracedb(Package):
     version('1.17'  , '65736f22a2f8358ee414630ad8694058')
 
     extends('python')
-    depends_on('py-m2crypto')
-    depends_on('py-cjson')
-    depends_on('py-setuptools')
+    depends_on('py-m2crypto', type=nolink)
+    depends_on('py-cjson', type=nolink)
+    depends_on('py-setuptools', type='build')
+    depends_on('py-ligo-common', type=nolink)
 
     def install(self, spec, prefix):
         python('setup.py', 'install', '--prefix={0}'.format(prefix))
