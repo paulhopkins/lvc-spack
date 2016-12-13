@@ -43,6 +43,8 @@ class Lalapps(Package):
     depends_on('lalpulsar')
     depends_on('lalinference')
 
+    depends_on('py-skyarea')
+
     def install(self, spec, prefix):
         config_args = ['--prefix=%s' % prefix]
 
