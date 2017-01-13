@@ -37,4 +37,8 @@ class PyLigoCommon(Package):
     depends_on('py-setuptools', type='build')
 
     def install(self, spec, prefix):
-        setup_py('install', '--prefix={0}'.format(prefix))
+        python('setup.py',
+               'install',
+               '--prefix={0}'.format(prefix),
+               '--single-version-externally-managed',
+               '--record', 'INSTALLED_FILES')

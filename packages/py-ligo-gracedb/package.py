@@ -27,15 +27,17 @@ from spack import *
 
 class PyLigoGracedb(Package):
     """Gravitational-wave Candidate Event Database
-    A prototype system to organize candidate events from \
-    gravitational-wave searches and to provide an environment to record \
-    information about follow-ups. This package provides a simple client \
+    A prototype system to organize candidate events from
+    gravitational-wave searches and to provide an environment to record
+    information about follow-ups. This package provides a simple client
     tool to submit candidate events to the database.
     """
 
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/gracedb.html"
     url      = "http://software.ligo.org/lscsoft/source/ligo-gracedb-1.20.tar.gz"
 
+    version('1.22', '60c43dfc97a45a61a799303a7edd30b3')
+    version('1.21', 'd7ef86d1377290ccddb77b0f5b801a70')
     version('1.20'  , '49081f9251571389998cff70b4fed4cd')
     version('1.19.1', '10dce70ced8cc988104463edead8dca3')
     version('1.19'  , 'f87152c405630af70ee71027cc3e9b1f')
@@ -49,4 +51,8 @@ class PyLigoGracedb(Package):
     depends_on('py-ligo-common', type=nolink)
 
     def install(self, spec, prefix):
-        python('setup.py', 'install', '--prefix={0}'.format(prefix))
+        python('setup.py',
+               'install',
+               '--prefix={0}'.format(prefix),
+               '--single-version-externally-managed',
+               '--record', 'INSTALLED_FILES')
