@@ -11,7 +11,7 @@ class LscsoftExternal(Package):
     version("0.1", "fbfe7b4acab1f9c5642388313270a616")
 
     depends_on("lscsoft-external-python", type='run')
-    depends_on("texlive scheme=medium", type='run')
+    depends_on("texlive scheme=full", type='run')
     depends_on("git", type='run')
     depends_on("git-lfs", type='run')
     depends_on("ImageMagick", type='run')
