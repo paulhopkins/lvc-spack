@@ -24,6 +24,7 @@ class LscsoftExternalPython(Package):
     depends_on("py-setuptools", type='run')
     depends_on("py-ipython", type='run')
     depends_on("py-shapely", type='run')
+    depends_on("py-seaborn", type='run')
 #    depends_on("py-pip")
 #    depends_on("py-sqlobject")
 #    depends_on("py34")
