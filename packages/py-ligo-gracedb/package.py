@@ -36,6 +36,7 @@ class PyLigoGracedb(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/gracedb.html"
     url      = "http://software.ligo.org/lscsoft/source/ligo-gracedb-1.20.tar.gz"
 
+    version('1.23', 'a68543e1a368eaa3ab35eef3676db402')
     version('1.22', '60c43dfc97a45a61a799303a7edd30b3')
     version('1.21', 'd7ef86d1377290ccddb77b0f5b801a70')
     version('1.20'  , '49081f9251571389998cff70b4fed4cd')
@@ -45,10 +46,10 @@ class PyLigoGracedb(Package):
     version('1.17'  , '65736f22a2f8358ee414630ad8694058')
 
     extends('python')
-    depends_on('py-m2crypto', type=nolink)
-    depends_on('py-cjson', type=nolink)
+    depends_on('py-m2crypto', type=('build', 'run'))
+    depends_on('py-cjson', type=('build', 'run'))
     depends_on('py-setuptools', type='build')
-    depends_on('py-ligo-common', type=nolink)
+    depends_on('py-ligo-common', type=('build', 'run'))
 
     def install(self, spec, prefix):
         python('setup.py',

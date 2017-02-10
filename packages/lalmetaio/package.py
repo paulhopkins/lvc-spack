@@ -34,6 +34,7 @@ class Lalmetaio(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalmetaio-1.2.7.tar.xz"
 
+    version('1.3.1', '5222898eebfc05dbddeba2d63c64d336')
     version('1.3.0', '5b8074b34fa084a23db37f1575aafdf5')
     version('1.2.8', '90f65f3ddfdbf08525ff6ab400588226')
     version('1.2.7', '8d13f353cc131bad73d5d5c28a01d38e')

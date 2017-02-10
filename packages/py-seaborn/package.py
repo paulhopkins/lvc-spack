@@ -57,13 +57,13 @@ class PySeaborn(Package):
 
     extends('python')
     depends_on('py-setuptools',  type='build')
-    depends_on('py-numpy',       type=nolink)
-    depends_on('py-scipy',       type=nolink)
-    depends_on('py-matplotlib',  type=nolink)
-    depends_on('py-pandas',      type=nolink)
+    depends_on('py-numpy',       type=('build', 'run'))
+    depends_on('py-scipy',       type=('build', 'run'))
+    depends_on('py-matplotlib',  type=('build', 'run'))
+    depends_on('py-pandas',      type=('build', 'run'))
     #TODO: Recommended dependency
     #variant("statsmodels", True, "Add dependency on statsmodels")
-    #depends_on('py-statsmodels', type=nolink)
+    #depends_on('py-statsmodels', type=('build', 'run'))
 
     def install(self, spec, prefix):
         setup_py('install', '--prefix={0}'.format(prefix))

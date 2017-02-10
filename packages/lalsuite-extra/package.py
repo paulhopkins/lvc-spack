@@ -36,6 +36,7 @@ class LalsuiteExtra(Package):
 
     version('develop', svn='https://svn.ligo.caltech.edu/svn/lalsuite-extra/')
 
+    version('1.3.0', '9fa7a8251f81d04b040af98ecaab376c')
     version('1.2.0', '383a73eea86a845dc12dfc0dd8a7651b')
     version('1.1.0', '325ead3b51d62a1bff48053d20ccbf1c')
     version('1.0.0', '2c8f66b90e68e200fdb62913c6fd3f9c')

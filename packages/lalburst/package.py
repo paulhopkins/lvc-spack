@@ -10,6 +10,7 @@ class Lalburst(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalburst-1.4.1.tar.xz"
 
+    version('1.4.4', '05091e9326151df70f99b425e7b46f41')
     version('1.4.3', '2d2d97115a3be8b27d7d1ff9119b4dc5')
     version('1.4.2', '6fac2dfc6c9d1d301cf58c8a47763a71')
     version('1.4.1', '2b0f81cce1aea92883f8b8337d330d48')

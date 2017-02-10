@@ -34,6 +34,7 @@ class PyGlue(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/glue.html"
     url      = "http://software.ligo.org/lscsoft/source/glue-1.50.0.tar.gz"
 
+    version('1.54.1', '8f69224fcd1106b6d0527bea61153da4')
     version('1.53.0', '877e0cbb96d2f1bfa602564cd1ae60e7')
     version('1.52.0', '1f88d2f35e04edd67fb97807ecdf3bad')
     version('1.51.0', '92bc0e04e9acbba964fc359b6a0804d0')
@@ -44,10 +45,10 @@ class PyGlue(Package):
     version('1.47.1', '7bba9cd4b0ee399f0e771ba4f60be222')
 
     extends('python')
-    depends_on('py-numpy', type=nolink)
-    depends_on('py-pyrxp', type=nolink)
-    depends_on('py-m2crypto', type=nolink)
-    depends_on('py-numpy', type=nolink)
+    depends_on('py-numpy', type=('build', 'run'))
+    depends_on('py-pyrxp', type=('build', 'run'))
+    depends_on('py-m2crypto', type=('build', 'run'))
+    depends_on('py-numpy', type=('build', 'run'))
 
     def install(self, spec, prefix):
         python('setup.py', 'install', '--prefix={0}'.format(prefix))

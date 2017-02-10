@@ -34,6 +34,7 @@ class Lalframe(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalframe-1.4.0.tar.xz"
 
+    version('1.4.3', 'f7e471322ac062c0bc9ffd3179b770fb')
     version('1.4.2', '91494d8783ee6b4b5725d0a8e866856a')
     version('1.4.1', 'e11a791b728176eb0f677419a004fe46')
     version('1.4.0', '087163c020b4da459fa7c5e1dca1aac8')

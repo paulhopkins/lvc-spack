@@ -10,6 +10,7 @@ class Lalapps(Package):
     homepage = "https://wiki.ligo.org/DASWG/LALSuite"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalapps-6.18.0.tar.xz"
 
+    version('6.21.0', '25111fb3ff902353164ddacf120effc6')
     version('6.20.0', '7911d73033754e5ec833a8597a5bee92')
     version('6.19.0', '3be60a5f199b48264bf5ea1e35ec7cfb')
     version('6.18.0', 'bfdbc69904da33a969870555b9e5e05e')

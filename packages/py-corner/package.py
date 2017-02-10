@@ -35,8 +35,8 @@ samples using a scatterplot matrix."""
     version('2.0.0', '249abecbc22e73549b46946b0219791f')
 
     extends('python')
-    depends_on('py-numpy', type=nolink)
-    depends_on('py-matplotlib', type=nolink)
+    depends_on('py-numpy', type=('build', 'run'))
+    depends_on('py-matplotlib', type=('build', 'run'))
 
     def install(self, spec, prefix):
         setup_py('install', '--prefix={0}'.format(prefix))

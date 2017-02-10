@@ -10,8 +10,8 @@ class LscsoftInternal(Package):
                               'archives', 'empty.tar.gz')
     version("0.1", "fbfe7b4acab1f9c5642388313270a616")
 
-    depends_on("py-dqsegdb", type=nolink)
-    depends_on("py-ligo-lvalert", type=nolink)
+    depends_on("py-dqsegdb", type=('build', 'run'))
+    depends_on("py-ligo-lvalert", type=('build', 'run'))
     depends_on("libframe")
     depends_on("py-glue")
     depends_on("lscsoft-lalsuite")

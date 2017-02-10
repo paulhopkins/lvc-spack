@@ -37,7 +37,7 @@ class PyShapely(Package):
 
     extends('python')
     depends_on('geos', type=alldeps)
-    depends_on('py-numpy', type=nolink)
+    depends_on('py-numpy', type=('build', 'run'))
 
     def install(self, spec, prefix):
         setup_py('install', '--prefix={0}'.format(prefix))

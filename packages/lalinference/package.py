@@ -50,6 +50,7 @@ class Lalinference(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalinference-1.6.0.tar.xz"
 
+    version('1.9.0', '2f38e128937d16fe2f110b18faf62234')
     version('1.8.2', '27a44963832ad7e24de22a05545baac8')
     version('1.8.1', '8fa4d3fe315b9c4d5b91c47dab9448e5')
     version('1.8.0', '6a7baa397b93390f8cdd2ba8676a5ace')
@@ -118,7 +119,7 @@ class Lalinference(Package):
             config_args.append('--disable-fast-gsl')
 
         if '+hdf5' in spec:
-            config_args.append('--with-hdf5=yes')
+            config_args.append('--with-hdf5=%s' % (join_path(spec['hdf5'].prefix.bin,'h5cc')))
         else:
             config_args.append('--with-hdf5=no')
 

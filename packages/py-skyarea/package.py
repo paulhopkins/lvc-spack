@@ -35,11 +35,11 @@ using a clustered-kernel-density estimate (similar to X-Means)."""
     version('0.2.1', 'f639f2a37691d19f76f894a89ce32b79')
 
     extends('python')
-    depends_on('py-numpy', type=nolink)
-    depends_on('py-matplotlib', type=nolink)
-    depends_on('py-scipy', type=nolink)
-    depends_on('py-healpy', type=nolink)
-    depends_on('py-glue', type=nolink)
+    depends_on('py-numpy', type=('build', 'run'))
+    depends_on('py-matplotlib', type=('build', 'run'))
+    depends_on('py-scipy', type=('build', 'run'))
+    depends_on('py-healpy', type=('build', 'run'))
+    depends_on('py-glue', type=('build', 'run'))
 
     def install(self, spec, prefix):
         setup_py('install', '--prefix={0}'.format(prefix))
