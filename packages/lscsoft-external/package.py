@@ -20,6 +20,7 @@ class LscsoftExternal(Package):
     depends_on("root", type='run')
     depends_on("openblas", type='run')
     depends_on("mercurial", type='run')
+    depends_on("pegasus", type='run')
 
     # Do not install anything and do not check if anything was installed
     def install(self, spec, prefix):
