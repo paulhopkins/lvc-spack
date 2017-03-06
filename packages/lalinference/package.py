@@ -50,6 +50,7 @@ class Lalinference(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lalsuite.html"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalinference-1.6.0.tar.xz"
 
+    version('1.9.1', '2700ed18099222b12ac4e54140a0aa4b')
     version('1.9.0', '2f38e128937d16fe2f110b18faf62234')
     version('1.8.2', '27a44963832ad7e24de22a05545baac8')
     version('1.8.1', '8fa4d3fe315b9c4d5b91c47dab9448e5')

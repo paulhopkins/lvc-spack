@@ -8,7 +8,7 @@ class LscsoftExternal(Package):
     # Empty archive shared between meta-packages
     url="file://" + join_path(dirname(dirname(dirname(__file__))),
                               'archives', 'empty.tar.gz')
-    version("0.1", "fbfe7b4acab1f9c5642388313270a616")
+    version("0.1.1", "fbfe7b4acab1f9c5642388313270a616")
 
     depends_on("lscsoft-external-python", type='run')
     depends_on("texlive scheme=full", type='run')
