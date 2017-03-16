@@ -18,6 +18,7 @@ class Lalapps(Package):
     variant('openmp', True, 'Enable OpenMP')
     variant('fastgsl', False, 'Enable fast/inline GSL code')
     variant('mpi', False, 'Enable MPI')
+    variant('static', False, 'Build static binaries')
 
     extends("python")
 
@@ -63,6 +64,11 @@ class Lalapps(Package):
             config_args.append('--enable-mpi')
         else:
             config_args.append('--disable-mpi')
+
+        if '+static' in spec:
+            config_args.append('--enable-static-binaries')
+        else:
+            config_args.append('--disable-static-binaries')
 
         configure(*config_args)
 
