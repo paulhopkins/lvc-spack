@@ -31,7 +31,7 @@ class Lal(Package):
     depends_on('py-numpy', when='+swig_python', type=('build', 'run'))
     depends_on('swig', when='+octave', type='build')
     depends_on('octave+fftw', when='+octave')
-    depends_on('hdf5~mpi', when='+hdf5')
+    depends_on('hdf5', when='+hdf5')
     depends_on('cuda', when='+cuda')
 
     def install(self, spec, prefix):
