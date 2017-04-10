@@ -25,7 +25,7 @@
 from spack import *
 
 
-class PyMpld3(PythonPackage):
+class PyMpld3(Package):
     """FIXME: Put a proper description of your package here."""
 
     # FIXME: Add a proper url for your package's homepage here.
@@ -35,3 +35,7 @@ class PyMpld3(PythonPackage):
     version('0.3', '088251ed3182b2932268f9986cdc2778')
 
     depends_on('py-setuptools', type='build')
+
+    extends('python')
+    def install(self, spec, prefix):
+        python('setup.py', 'install', '--prefix={0}'.format(prefix))

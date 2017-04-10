@@ -35,6 +35,7 @@ class PyLigoLvalert(Package):
     homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lvalert.html"
     url      = "http://software.ligo.org/lscsoft/source/ligo-lvalert-1.3.tar.gz"
 
+    version('1.4.3', '155f24d5bcca0b7604337e19ecb61914')
     version('1.4.2', 'd1ead5012c71f08271c193b28a9c2fe4')
     version('1.4.1', '9141a410f6323df4fd8ed9d13d19910c')
     version('1.4'  , '91a3fc81f1a55605d5ace16bb282d018')

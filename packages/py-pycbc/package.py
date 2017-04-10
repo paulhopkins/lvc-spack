@@ -24,7 +24,7 @@
 ##############################################################################
 from spack import *
 
-class PyPycbc(PythonPackage):
+class PyPycbc(Package):
     """A Python toolkit for analysis of data from gravitational-wave laser
     interferometer detectors with the goal of detecting and studying signals
     from compact binary coalescences (CBCs)."""
@@ -73,7 +73,7 @@ class PyPycbc(PythonPackage):
     depends_on("lalburst+swig_python", type=('build', 'run'))
     depends_on("lalsimulation+swig_python", type=('build', 'run'))
     depends_on("lalpulsar+swig_python", type=('build', 'run'))
-    depends_on("lalapps+swig_python+static", when='+lalapps', type=('build', 'run'))
+    depends_on("lalapps+static", when='+lalapps', type=('build', 'run'))
 
     depends_on("py-pylal", type=('build', 'run'))
     depends_on('py-pycbc-dqsegdb', type=('build', 'run'))
@@ -81,7 +81,10 @@ class PyPycbc(PythonPackage):
 
     depends_on("pegasus", type=('build', 'run'))
 
-    def install_args(self, spec, prefix):
-        args = super(PyPycbc, self).install_args(spec, prefix)
-        return args + ['--record=INSTALLED_FILES',
-                       '--single-version-externally-managed']
+    extends('python')
+    def install(self, spec, prefix):
+        python('setup.py',
+               'install',
+               '--prefix={0}'.format(prefix),
+               '--record=INSTALLED_FILES',
+               '--single-version-externally-managed')

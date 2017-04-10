@@ -33,6 +33,7 @@ class Lalsimulation(Package):
     homepage = "https://wiki.ligo.org/DASWG/LALSuite"
     url      = "http://software.ligo.org/lscsoft/source/lalsuite/lalsimulation-1.5.0.tar.xz"
 
+    version('1.7.3', '275652af9bf41413de40f7125e4a3152')
     version('1.7.2', '34c9066e763751aa61e4ff13dfd401d4')
     version('1.7.1', 'f2afbe88ba68ad3d0bebe4df90ef03ea')
     version('1.7.0', '2adaa6dd93baea8d6207c1125f5b1b12')

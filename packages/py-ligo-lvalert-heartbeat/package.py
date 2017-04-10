@@ -27,11 +27,11 @@
 # next to all the things you'll want to change. Once you've handled
 # them, you can save this file and test your package like this:
 #
-#     spack install pegasus-source
+#     spack install py-ligo-lvalert-heartbeat
 #
 # You can edit this file again by typing:
 #
-#     spack edit pegasus-source
+#     spack edit py-ligo-lvalert-heartbeat
 #
 # See the Spack documentation for more information on packaging.
 # If you submit this package back to Spack as a pull request,
@@ -39,30 +39,25 @@
 #
 from spack import *
 
-class PegasusSource(Package):
-    """FIXME: Put a proper description of your package here."""
 
-    # FIXME: Add a proper url for your package's homepage here.
-    homepage = "http://www.example.com"
-    url      = "http://download.pegasus.isi.edu/pegasus/4.6.1/pegasus-source-4.6.1.tar.gz"
+class PyLigoLvalertHeartbeat(Package):
+    """This module implements a basic functionality monitor for lvalert_listen 
+    instances via the LVAlert system itself."""
 
-    version('4.7.4', '385612455e70bdcd28d2a7f65621761d')
-    version('4.6.1', '78a8e59257925382a461b4f7e03cc05b')
+    homepage = "https://www.lsc-group.phys.uwm.edu/daswg/projects/lvalert.html"
+    url      = "http://software.ligo.org/lscsoft/source/ligo-lvalert-heartbeat-1.1.2.tar.gz"
 
-    # FIXME: Add additional dependencies if required.
-#    depends_on('* Linux or Mac OS X (not Windows)
-#* Ant v1.6 or later
-#* Java v1.5 or later
-#* Python 2.4 or later (not Python 3 or later)
-#* Perl 5 or so
-#* A C compiler (gcc or clang)
-#* A C++ compiler (gcc or clang)
-#* Make
-#* Typical UNIX tools such as tar and sed
-#
-#
+    version('1.1.2', '030622146fd45434dd91e240e028069b')
+
+    extends('python')
+    depends_on('py-ligo-lvalert', type=('link', 'run'))
+    depends_on('py-pyxmpp', type=('link', 'run'))
+    depends_on('py-ligo-common', type=('link', 'run'))
+    depends_on('py-m2crypto', type=('link', 'run'))
 
     def install(self, spec, prefix):
-#        "ant dist"
-        make()
-        make('install')
+        python('setup.py',
+               'install',
+               '--prefix={0}'.format(prefix),
+               '--single-version-externally-managed',
+               '--record', 'INSTALLED_FILES')

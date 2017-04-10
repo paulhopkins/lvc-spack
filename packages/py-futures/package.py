@@ -22,25 +22,21 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
+
 from spack import *
 
 
-class PyKombine(Package):
-    """FIXME: Put a proper description of your package here."""
+class PyFutures(Package):
+    """Backport of the concurrent.futures package from Python 3.2"""
 
-    homepage = "https://github.com/bfarr/kombine"
-    url      = "https://pypi.python.org/packages/73/ee/2b759a011f1da2b5e4e2fe2f7952c830f6bcb3df669d2b9048b166a1c806/kombine-0.8.0.tar.gz#md5=ca14fce10f08c8ab6bac6e541f2889ff"
+    homepage = "https://pypi.python.org/pypi/futures"
+    url      = "https://pypi.python.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz#md5=ced2c365e518242512d7a398b515ff95"
 
-    version('0.8.0', 'ca14fce10f08c8ab6bac6e541f2889ff')
-
-    depends_on('py-setuptools', type='build')
-    depends_on('py-scipy', type=('build', 'run'))
-    depends_on('py-numpy', type=('build', 'run'))
+    version('3.0.5', 'ced2c365e518242512d7a398b515ff95')
 
     extends('python')
+
+    depends_on('py-setuptools', type='build')
+
     def install(self, spec, prefix):
-        python('setup.py',
-               'install',
-               '--prefix={0}'.format(prefix),
-               '--record=INSTALLED_FILES',
-               '--single-version-externally-managed')
+        setup_py('install', '--prefix={0}'.format(prefix))

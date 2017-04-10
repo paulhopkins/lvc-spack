@@ -8,12 +8,13 @@ class LscsoftInternal(Package):
     # Empty archive shared between meta-packages
     url="file://" + join_path(dirname(dirname(dirname(__file__))),
                               'archives', 'empty.tar.gz')
-    version("0.1", "fbfe7b4acab1f9c5642388313270a616")
+    version("0.2", "fbfe7b4acab1f9c5642388313270a616")
 
-    depends_on("py-dqsegdb", type=('build', 'run'))
+    variant('pycbc', False, "Add PyCBC and use PyCBC forks where necessary")
+
     depends_on("py-ligo-lvalert", type=('build', 'run'))
+    depends_on("py-ligo-lvalert-heartbeat", type=('build', 'run'))
     depends_on("libframe")
-    depends_on("py-glue")
     depends_on("lscsoft-lalsuite")
     depends_on("py-ligo-common")
     #depends_on("ldas-tools+matlab")
@@ -27,6 +28,13 @@ class LscsoftInternal(Package):
     #depends_on("nds2-client+doc+octave+python")
     #depends_on("ligo-lars")
     #depends_on("gds+core+crtools+monitors+pygds+services")
+
+    depends_on("py-dqsegdb", type=('build', 'run'), when='~pycbc')
+    depends_on("py-glue", type=('build', 'run'), when='~pycbc')
+
+    depends_on("py-pycbc-dqsegdb", type=('build', 'run'), when='+pycbc')
+    depends_on("py-pycbc-glue", type=('build', 'run'), when='+pycbc')
+    depends_on("py-pycbc", type=('build', 'run'), when='+pycbc')
 
     # Do not install anything and do not check if anything was installed
     def install(self, spec, prefix):

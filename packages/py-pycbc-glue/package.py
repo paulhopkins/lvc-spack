@@ -25,7 +25,7 @@
 from spack import *
 
 
-class PyPycbcGlue(PythonPackage):
+class PyPycbcGlue(Package):
     """FIXME: Put a proper description of your package here."""
 
     # FIXME: Add a proper url for your package's homepage here.
@@ -33,3 +33,9 @@ class PyPycbcGlue(PythonPackage):
     url      = "https://github.com/ligo-cbc/pycbc-glue/archive/v1.0.1.tar.gz"
 
     version('1.0.1', 'e65b8d52ebfbedaa975329dffae823ea')
+
+    extends('python')
+    def install(self, spec, prefix):
+        python('setup.py',
+               'install',
+               '--prefix={0}'.format(prefix))
